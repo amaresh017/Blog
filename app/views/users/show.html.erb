@@ -1,0 +1,16 @@
+<h3>User's full details:</h3>
+<table class="table table-bordered table-hover">
+	<tr>
+	  <th>First Name: </th> <td><%= @user.first_name%></td>
+	</tr>
+	<tr>
+	  <th>Last Name: </th> <td><%= @user.last_name%></td>
+	</tr>
+	<tr>
+	  <th>Email:</th> <td><%= @user.email%></td>
+	</tr>
+	<tr>
+	  <th>Username:</th> <td><%= @user.username%></p></td>
+	</tr>
+</table>
+<%= link_to 'Back to index', users_path, class: 'btn btn-success' %>

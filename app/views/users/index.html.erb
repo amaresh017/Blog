@@ -1,0 +1,35 @@
+<div class="pull-right">
+	<%= link_to 'Add user', {:action => 'new', :controller => "users"}, class:'btn btn-info'%>
+</div>
+<div>
+	<h3> All user's list:</h3>
+</div>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    	<% @users.each do |user| %>
+    	<tr>
+    	  <td><%= '#' %></td>
+    		<td><%= user.first_name %></td>
+    		<td><%= user.last_name %></td>
+    		<td><%= user.email %></td>
+    		<td><%= user.username %></td>
+    		<td>
+    			<%= link_to("Show",   {:action => 'show', :id => user.id }) %>
+    			<%= link_to("Edit",   {:action => 'edit', :id => user.id }) %>
+	        <%= link_to("Delete", '#') %>	
+    		</td>
+    	</tr>
+    	<% end %>
+    </tbody>
+</div>
