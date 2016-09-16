@@ -3,9 +3,6 @@ class CreateUsers < ActiveRecord::Migration[5.0]
     create_table :users do |t|
     	t.string "first_name", :limit => 30
     	t.string "last_name", :limit => 40
-    	t.string "email", :default => "", :null => false
-      t.string "username", :limit =>15
-    	t.string "password"
     	t.string "user_type"
       t.timestamps
     end

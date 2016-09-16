@@ -1,0 +1,13 @@
+<h3>Sub category's full details:</h3>
+<table class="table table-bordered table-hover">
+	<tr>
+	  <th>Name: </th> <td><%= @sub_category.name%></td>
+	</tr>
+	<tr>
+	  <th>Category: </th> <td><%= @category.name%></td>
+	</tr>
+	<tr>
+	  <th>Created_at: </th> <td><%= @sub_category.created_at%></td>
+	</tr>
+</table>
+<%= link_to 'Back to index', sub_categories_path, class: 'btn btn-primary' %>

@@ -1,0 +1,28 @@
+<!-- Check for errors -->
+<% if @article.errors.any? %>
+  <% @article.errors.full_messages.each do |msg| %>
+    <div class="alert alert-danger"><%= msg %></div>
+  <% end %>  
+<% end %>
+<div class="form-group" >
+	<%= f.input :title, class:'form-control' %>
+</div>
+
+<div class="form-group" >
+	<%= f.input :content, :as => :ckeditor, input_html: {:ckeditor => {:toolbar => 'FULL'}}, class:'form-control' %>
+</div>
+
+<div>
+		<%= f.fields_for :sub_categories do |sub_category| %>
+		  <%= sub_category.input :name %>
+		  <%= sub_category.input  :category_id, input_html: {value: @article.id}, as: :hidden  %>
+		  <%= sub_category.link_to_remove "Remove subcategory" %>
+		<% end %>
+		<%= f.link_to_add "Tag subcategories", :sub_categories %>
+	</div>
+
+<!-- add field to tag subcategories;-->
+
+<br>
+<%= f.button :submit, class:'btn btn-primary'%>
+<%= link_to 'Cancel', articles_path, class:'btn btn-default'%>	 

@@ -25,8 +25,8 @@
     		<td><%= user.email %></td>
     		<td><%= user.username %></td>
     		<td>
-    			<%= link_to("Show",   {:action => 'show', :id => user.id }) %>
-    			<%= link_to("Edit",   {:action => 'edit', :id => user.id }) %>
+    			<%= link_to("Show",   {:action => 'show', :controller => 'users', :id => user.id }) %>
+    			<%= link_to("Edit",   {:action => 'edit', :controller => 'users', :id => user.id }) %>
 	        <%= link_to("Delete", '#') %>	
     		</td>
     	</tr>

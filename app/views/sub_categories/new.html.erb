@@ -1,0 +1,18 @@
+<div>
+  <h2>Create new sub category<h2>
+</div>
+<%= form_for(@sub_category, :url => {:action => "create", :controller => "sub_categories"}, :html => {:method =>"post"}) do |f| %>
+  <!-- Check for errors -->
+	  <% if @sub_category.errors.any? %>
+	    <% @sub_category.errors.full_messages.each do |msg| %>
+	      <div class="alert alert-danger"><%= msg %></div>
+	    <% end %>  
+	  <% end %>
+	<div class="form-group" >
+  	<%= f.label :name %>
+  	<%= f.text_field :name, class:'form-control' %>
+
+  <br>
+  <%= f.submit "Create", class:'btn btn-primary'%>
+  <%= link_to 'Cancel', {:action => 'index', :controller => "sub_categories"}, class:'btn btn-default'%>	  
+<% end %>	

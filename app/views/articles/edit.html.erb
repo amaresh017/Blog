@@ -1,0 +1,8 @@
+<div>
+  <h2>Update the Article<h2>
+</div>
+<%= simple_nested_form_for(@article, :url => {:action => "update", :controller => "articles"}, :html => {:method =>"put"}) do |f| %>
+  <!--  render the partial_form here-->	 
+  <%= render(:partial => "articles/shared/article_form", :locals => {:f => f}) %>
+
+<% end %>	

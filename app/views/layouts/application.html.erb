@@ -19,7 +19,7 @@
             <a class="navbar-brand" href="#">Blog</a>
           </div>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
+          <li class="active"><%= link_to 'Home', root_path, class: 'btn'  %></li>
           <li><a href="#">Link</a></li>
           <li><a href="#">Link</a></li>
           <li class="divider-vertical"></li>
@@ -27,8 +27,8 @@
           <li><a href="#">Options</a></li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-          <li><%= link_to 'Sign in', '#', class: 'btn'  %></li>
-          <li><%= link_to 'Sign up', '#', class: 'btn'  %></li>
+          <li><%= render 'users/shared/registration_items' %></li>
+          <li><%= render 'users/shared/login_items' %></li>
         </ul>
       </div>
       <div class="jumbotron " style="min-height: 440px; ">

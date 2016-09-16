@@ -1,0 +1,27 @@
+<div>
+  <h2>Create new category<h2>
+</div>
+<%= nested_form_for(@category, :url => {:action => "create", :controller => "categories"}, :html => {:method =>"post"}) do |f| %>
+  <!-- Check for errors -->
+	  <% if @category.errors.any? %>
+	    <% @category.errors.full_messages.each do |msg| %>
+	      <div class="alert alert-danger"><%= msg %></div>
+	    <% end %>  
+	  <% end %>
+	<div class="form-group" >
+  	<%= f.label :name %>
+  	<%= f.text_field :name, class:'form-control' %>
+	</div>
+	<div>
+		<%= f.fields_for :sub_categories do |sub_category| %>
+		  <%= sub_category.text_field :name %>
+		  <%= sub_category.hidden_field  :category_id, input_html: {value: @category.id}, as: :hidden  %>
+		  <%= sub_category.link_to_remove "Remove subcategory" %>
+		<% end %>
+		<%= f.link_to_add "Add subcategory", :sub_categories %>
+	</div>
+  <br>
+
+  <%= f.submit "Create", class:'btn btn-primary'%>
+  <%= link_to 'Cancel', {:action => 'index', :controller => "categories"}, class:'btn btn-default'%>	  
+<% end %>	
