@@ -5,7 +5,8 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    #@subcategories = @article.sub_categories
+    @comments = @article.comments
+
   end
 
 	def new
@@ -49,7 +50,8 @@ class ArticlesController < ApplicationController
   end
 
   private
+    
     def article_params
-    	params.require(:article).permit(:user_id, :title, :content)
+      params.require(:article).permit(:user_id, :title, :content, sub_categories_attributes: [:id, :name, :category_id, :_destroy])
     end
 end

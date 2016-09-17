@@ -1,20 +1,28 @@
-<h3>Article's full details:</h3>
-<table class="table table-bordered table-hover">
-	<tr>
-	  <th>Title: </th> <td><%= @article.title %></td>
-	</tr>
-	<tr>
-	  <th>Subcategories: </th>
-	  <td>
-	  	<ul class="list-group">
-        <% @article.sub_categories.each do |sc| %>
-          <li class="list-group-item"><%= sc.name %></li>
-        <% end %>
-      </ul>
-	  </td>
-	</tr>
-	<tr>
-	  <th>Content:</th> <td> <div> <%= @article.content%> </div></td>
-	</tr>
-</table>
-<%= link_to 'Back to index', articles_path, class: 'btn btn-success' %>
+<h3> <%= @article.title.capitalize %></h3>
+<div>
+	<p>
+		<%= @article.content%>
+	</p>	
+</div>
+<div>
+	<h3> Comments:</h3>
+	<ul class="list-group">
+	  <% @comments.each do |comment| %>
+	    <li class="list-group-item">
+	      <p> 	
+	        <strong> Posted <%= time_ago_in_words(comment.created_at) %> ago </strong> <br> 
+	        <%= comment.content %>
+	      </p> 
+	    </li>
+	  <% end %>
+	</ul>  
+</div>
+<!--add a form to make an comment on a particular article-->
+<div>
+	<%= simple_form_for [@article, Comment.new] do |f| %>
+    <div class="form-group" >
+	    <%= f.input :content, :label => 'Comment', class:'form-control' %>
+    </div>
+    <%= f.submit "Submit comment", class:'btn btn-primary'%>	  
+  <% end %>	
+</div>

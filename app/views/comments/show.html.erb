@@ -1,0 +1,10 @@
+<h3>Comment details:</h3>
+<table class="table table-bordered table-hover">
+	<tr>
+	  <th>Content: </th> <td><%= @comment.content %></td>
+	</tr>
+	<tr>
+	  <th>Created_at: </th> <td><%= @comment.created_at %></td>
+	</tr>
+</table>
+<%= link_to 'Back to index', comments_path, class: 'btn btn-primary' %>

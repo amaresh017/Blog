@@ -1,0 +1,9 @@
+<div>
+	<%= form_for(@comment, :url => {:action => "destroy", :controller => "comments", :id => @comment.id}, :html => {:method =>"delete"}) do |f| %>
+  <h2>delete the comment ?</h2>
+  <br>
+  <%= f.submit "Delete", class:'btn btn-danger'%>
+  <%= link_to 'Cancel', 'comments_path', class:'btn btn-primary'%>
+<% end %>
+</div>
+	

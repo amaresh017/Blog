@@ -10,10 +10,12 @@ Rails.application.routes.draw do
   namespace :users do
     resources :users
   end
-  # root for user's crud
-  #post '/users/sign_up', :to 'users/registration#create'  
+  # to post an comment on an articale
+  resources :articles do
+    resources :comments, :only => [:create]
+  end  
 
   
-  resources  :articles, :categories, :sub_categories, :comments
+  resources  :categories, :sub_categories
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

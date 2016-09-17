@@ -1,0 +1,9 @@
+<div>
+  <h2>New comment<h2>
+</div>
+<%= simple_form_for(@comment, :url => {:action => "create", :controller => "comments"}, :html => {:method =>"post"}) do |f| %>
+  
+  <%= render(:partial => "comments/shared/comment_form", :locals => {:f => f}) %>
+
+  <%= link_to 'Cancel', {:action => 'index', :controller => "comments"}, class:'btn btn-default'%>	  
+<% end %>	
